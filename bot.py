@@ -15,7 +15,7 @@ BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 GROUP_CHAT_ID = int(os.getenv("GROUP_CHAT_ID"))
 JSON_FILE = "readings/G1_Sequential_Bible_Reading_2025-10-05_to_2026-10-09.json"
 TIMEZONE = "Africa/Addis_Ababa"
-POST_TIME = "10:00"  # 10:00 AM local time
+POST_TIME = "06:00"  # 10:00 AM local time
 
 # Load reading plan
 with open(JSON_FILE, "r", encoding="utf-8") as f:
