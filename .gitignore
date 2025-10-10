@@ -1,0 +1,11 @@
+# Ignore environment variables
+.env
+
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+venv/
+bot_env/
+
+# Logs
+*.log
