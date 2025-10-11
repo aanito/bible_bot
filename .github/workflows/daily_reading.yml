@@ -1,32 +1,33 @@
-name: Daily Bible Reading — G1
+name: Daily Bible Reading Post
 
-# Runs on schedule (cron uses UTC) + can be manually triggered
 on:
   schedule:
-    - cron: "0 3 * * *" # runs at 03:00 UTC daily -> 06:00 Africa/Addis_Ababa (UTC+3)
+    - cron: "0 5 * * *" # runs every day at 8 AM Addis time (5 AM UTC)
   workflow_dispatch:
 
 jobs:
-  send:
+  send-reading:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run send_reading
+      - name: List files for debugging
+        run: ls -R
+
+      - name: Send Daily Reading
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           GROUP_CHAT_ID: ${{ secrets.GROUP_CHAT_ID }}
-          READING_FILE: readings/G1_Sequential_Bible_Reading_2025-10-05_to_2026-09-10.json
-          TIMEZONE: Africa/Addis_Ababa
+          READING_FILE: "${{ github.workspace }}/readings/G1_Sequential_Bible_Reading_2025-10-05_to-2026-09-10.json"
+          TIMEZONE: "Africa/Addis_Ababa"
         run: python scripts/send_reading.py
