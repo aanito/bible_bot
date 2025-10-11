@@ -34,8 +34,8 @@ ot = reading["G1"].get("old_testament", "N/A")
 nt = reading["G1"].get("new_testament", "N/A")
 
 message = (
-    "📖 Good morning, beloved!\n\n"
-    f"<b>G1 Bible Reading for {today}:</b>\n"
+    "📖 Good morning, beloveds!\n\n"
+    f"<b>Our Bible Reading for {today}:</b>\n\n"
     f"Old Testament: {ot}\n"
     f"New Testament: {nt}\n\n"
     "Blessings!! 🙏"
