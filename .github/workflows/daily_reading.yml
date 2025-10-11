@@ -28,6 +28,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           GROUP_CHAT_ID: ${{ secrets.GROUP_CHAT_ID }}
-          READING_FILE: "${{ github.workspace }}/readings/G1_Sequential_Bible_Reading_2025-10-05_to-2026-09-10.json"
+          READING_FILE: "${{ github.workspace }}/readings/G1_Sequential_Bible_Reading_2025-10-05_to_2026-10-09.json"
           TIMEZONE: "Africa/Addis_Ababa"
         run: python scripts/send_reading.py
